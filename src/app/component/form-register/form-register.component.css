@@ -1,0 +1,66 @@
+
+.padre{
+  height: 95vh;
+  background-image: url(https://img.freepik.com/foto-gratis/libros-repisa_23-2147711744.jpg?w=1380&t=st=1677506917~exp=1677507517~hmac=9fe3252c2c9d449bebbacf567df37274db6a29fdfa32a901aae22b45266da1ec);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+  height: 500px;
+  background-color: rgb(157, 230, 150);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.03);
+  opacity: 80%;
+
+}
+
+.title {
+  color: rgb(2, 134, 13);
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+
+.form button {
+  align-self: flex-end;
+}
+
+.input, button {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 16px 10px;
+  background-color: rgb(247, 243, 243);
+  border-radius: 10px;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+button {
+  margin-top: 12px;
+  background-color: rgb(8, 141, 15);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.input:focus {
+  border: 1px solid rgb(23, 111, 211);
+}
+
+#file {
+  display: none;
+}

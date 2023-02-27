@@ -1,0 +1,21 @@
+.fondo{
+  height: 95vh;
+  background-image: url(https://img.freepik.com/foto-gratis/libros-repisa_23-2147711744.jpg?w=1380&t=st=1677506917~exp=1677507517~hmac=9fe3252c2c9d449bebbacf567df37274db6a29fdfa32a901aae22b45266da1ec);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1{
+  color: rgb(103, 187, 100);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  padding: 10%;
+}
+
+
+.fraseDeAbajo{
+  color: rgb(103, 187, 100);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: x-large;
+  margin-left: 3%;
+}
