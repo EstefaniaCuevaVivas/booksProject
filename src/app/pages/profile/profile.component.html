@@ -1,0 +1,59 @@
+<div class="fondo">
+<div class="contenedorprincipal">
+  <div class="container">
+    <div class="card">
+        <input accept="image/png, image/jpeg" name="avatar" type="file">
+       <img style="border-radius: 600px;" width="175px" src="{{newUser.photo}}" alt="">
+    </div>
+    <div class="info">
+        <h2>{{newUser.name}} {{newUser.last_name}}</h2>
+        
+    </div>
+
+     <div class="tarjeta">
+      <form class="formTarjeta">
+       <label for="">Nombre :</label> 
+       <input type="text"  value="{{newUser.name}}">
+       <label for="">Apellidos :</label> 
+       <input type="text" [value]="newUser.last_name">
+       <label for="">email:</label> 
+       <input type="email" value="{{newUser.email}}">
+      </form>
+     </div>
+</div>
+
+  
+  
+    <div class="container">
+      <div class="card">
+          
+          
+      </div>
+      <div class="info">
+          <h2>Editar datos</h2>
+          <hr>
+          
+      </div>
+  
+       <div class="tarjeta">
+        <form class="formTarjeta">
+         <label for="">Nombre :</label> 
+         <input type="text" #input1>
+         <label for="">Apellidos :</label> 
+         <input type="text" #input2>
+         <label for="">email:</label> 
+         <input type="email" #input3 >
+         <label for="">Url:</label> 
+         <input type="url" #input4>
+         <button (click)= "enviar(input1.value,input2.value,input3.value,input4.value)" type="button">Modificar</button>
+        </form>
+       </div>
+  
+
+
+  </div>
+
+</div>
+
+ 
+</div>
