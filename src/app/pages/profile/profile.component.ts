@@ -26,6 +26,6 @@ export class ProfileComponent {
       console.log(this.newUser.photo)
   
     }
-  }
+}
 
 

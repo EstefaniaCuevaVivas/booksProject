@@ -1,0 +1,184 @@
+.fondo{
+  height: 140vh;
+  background-image: url(https://img.freepik.com/foto-gratis/libros-repisa_23-2147711744.jpg?w=1380&t=st=1677506917~exp=1677507517~hmac=9fe3252c2c9d449bebbacf567df37274db6a29fdfa32a901aae22b45266da1ec);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contenedorCards{
+ width: 100%;
+ height: 80vh;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ gap:5%;
+ 
+}
+
+.showBooks{
+  color: green;
+  font-size: 60px;
+  width: 40%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.card {
+  width: 20%;
+  height: 90%;
+  padding: .8em;
+  margin-top: 4%;
+  background: rgba(54, 87, 54,.6);
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+ }
+ 
+ img {
+  background-color: #ffcaa6;
+  height: 70%;
+  width: 100%;
+  border-radius: .5rem;
+  transition: .3s ease;
+ }
+ 
+ .card-info {
+  padding-top: 10%;
+ }
+
+ .text-type{
+  color: white;
+  font-size: 20px;
+ }
+ 
+ svg {
+  color: white;
+  width: 20px;
+  height: 20px;
+ }
+ 
+ .card-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+ }
+ 
+ /*Text*/
+ .text-title {
+  color: white;
+  font-weight: 900;
+  font-size: 1.5em;
+  line-height: 1.5;
+ }
+ 
+ .text-body {
+  color: white;
+  font-size: 18px;
+  padding-bottom: 10px;
+ }
+
+ .pipe{
+  color: white;
+  font-size: 17px;
+  padding-bottom: 10px;
+ }
+ 
+ /*Button*/
+ .card-button {
+  border: 1px solid #fdfcfc;
+  display: flex;
+  padding: .3em;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: .3s ease-in-out;
+ }
+ 
+ /*Hover*/
+ .card-img:hover {
+  transform: translateY(-25%);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+ }
+ 
+ .card-button:hover {
+  border: 1px solid #ffcaa6;
+  background-color: #ffcaa6;
+ }
+ 
+ .verde{
+
+  background-color: rgb(200, 255, 0);
+
+ }
+
+ .rojo{
+  background-color: red;
+ }
+  
+ .contenedorform{
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+
+
+ }
+ .form {
+  
+  display: flex;
+  flex-direction: column;
+  
+  gap: 10px;
+  width: 600px;
+  height: 500px;
+  background-color: rgb(61, 88, 58);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.03);
+  opacity: 80%;
+
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+
+.form button {
+  align-self: flex-end;
+}
+
+.input, button {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 16px 10px;
+  background-color: rgb(247, 243, 243);
+  border-radius: 10px;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+button {
+  margin-top: 12px;
+  background-color: rgb(8, 141, 15);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.input:focus {
+  border: 1px solid rgb(23, 111, 211);
+}
+
+#file {
+  display: none;
+}
