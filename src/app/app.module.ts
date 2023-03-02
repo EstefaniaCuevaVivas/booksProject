@@ -11,6 +11,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { BooksComponent } from './pages/books/books.component';
 import { ReferenciasPipe } from './pipes/referencias.pipe';
+import { CardComponent } from './component/card/card.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ReferenciasPipe } from './pipes/referencias.pipe';
     ProfileComponent,
     BooksComponent,
     ReferenciasPipe,
+    CardComponent,
    
   ],
   imports: [

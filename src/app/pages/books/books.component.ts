@@ -26,6 +26,13 @@ export class BooksComponent {
  }
 
 
+ recoger(libro:Book){
 
+let nuevosLibros=this.Books.filter(book => book.id_book != libro.id_book)
+
+  this.Books = nuevosLibros;
+ 
+
+ }
    
 }
