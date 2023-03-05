@@ -1,6 +1,6 @@
 
 <div class="card">
-  <button (click) = "eliminarCard()" class="cerrar" type="button">X</button>
+  <button (click) = "eliminarCard(cardbook.id_book)" class="cerrar" type="button">X</button>
   <img src="{{ cardbook.photo }}" class="card-img" />
   <div class="card-info">
     <p class="text-type">{{ cardbook.type }}</p>

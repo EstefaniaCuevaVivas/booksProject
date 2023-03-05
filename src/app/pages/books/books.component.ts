@@ -1,5 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
   selector: 'app-books',
@@ -7,16 +9,29 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent {
- public Books: Book []
+ public Books: Book [];
+ public searchedBook : Book;
 
- constructor(){
+ constructor(public BooksService: BooksService ){
 
-   let book1 :Book = new Book ("El niño con el pijama de rayas","Tapa blanda","John Boyne",39,"https://m.media-amazon.com/images/I/512ndU0-S+L.jpg",60,24);
-   let book2 :Book = new Book ("Harry Potter","Tapa dura","J. k. Rowling",45,"https://static.posters.cz/image/1300/posters/harry-potter-la-piedra-filosofal-i104639.jpg",45,68);
-   let book3 :Book = new Book ("Codigo Da Vinci","Tapa dura","Dan Brown",20,"https://m.media-amazon.com/images/I/A1IH+BJHY3L.jpg",33,15)
+ this.Books= this.BooksService.getAll()
 
-  this.Books=[book1,book2,book3]
+
   
+ }
+ searchBook(id_book:string){
+
+  if(id_book == " "){
+    this.Books=this.BooksService.getAll()
+  }else{
+    let number:number = Number(id_book)
+    this.searchedBook=this.BooksService.getOne(number)
+    console.log(this.searchedBook)
+  }if(this.searchedBook != undefined){
+    this.Books=[this.searchedBook]
+  }
+
+   
  }
 
  enviar(title: string,type: string,author: string, price: number,photo: string,id_book:number){
@@ -28,7 +43,7 @@ export class BooksComponent {
 
  recoger(libro:Book){
 
-let nuevosLibros=this.Books.filter(book => book.id_book != libro.id_book)
+ let nuevosLibros=this.Books.filter(book => book.id_book != libro.id_book)
 
   this.Books = nuevosLibros;
  

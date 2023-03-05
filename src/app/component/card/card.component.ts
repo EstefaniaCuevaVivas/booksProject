@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { BooksService } from 'src/app/shared/books.service';
+
 
 @Component({
   selector: 'app-card',
@@ -8,15 +10,17 @@ import { Book } from 'src/app/models/book';
 })
 export class CardComponent
 {
+  public eliminarLibro: boolean;
+ 
   @Input() cardbook: Book;
   @Input() parHijo: boolean;
-  @Output() eventoBoton= new EventEmitter<Book>();
+  // @Output() eventoBoton= new EventEmitter<Book>();
 
-  constructor(){}
+  constructor(public BooksService: BooksService){}
 
-  eliminarCard(){
+  eliminarCard(id_book:number){
    
-    this.eventoBoton.emit(this.cardbook)
+    this.eliminarLibro = this.BooksService.delete(id_book)
    
   }
 }

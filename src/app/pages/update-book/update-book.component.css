@@ -1,79 +1,19 @@
 .fondo{
-  
+  height: 100vh;
   background-image: url(https://img.freepik.com/foto-gratis/libros-repisa_23-2147711744.jpg?w=1380&t=st=1677506917~exp=1677507517~hmac=9fe3252c2c9d449bebbacf567df37274db6a29fdfa32a901aae22b45266da1ec);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
  
 }
 
-.contenedorCards{
-
-  width: 100%;
-  height: 80%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  
-  padding: 3%;
-  gap:5%;
-  
- }
-
- #search-box {
-  position: relative;
-  width: 20%;
-  margin-top: 2%;
-  }
-  #search-form {
-  height: 32px;
-  border: 1px solid #cbf3ee;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  background-color: #fff;
-  overflow: hidden;
-  }
-  #search-text {
-  font-size: 14px;
-  color: #ddd;
-  border-width: 0;
-  background: transparent;
-  }
-  
-  #search-box input[type="text"] {
-  width: 90%;
-  padding: 8px 0 12px 1em;
-  color: #333;
-  outline: none;
-  }
-  #search-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 34px;
-  width: 80px;
-  font-size: 14px;
-  color: #656;
-  text-align: center;
-  line-height: 4px;
-  border-width: 0;
-  background-color: #a0ca9f;
-  -webkit-border-radius: 0px 15px 15px;
-  -moz-border-radius: 0px 15px 15px 15px;
-  border-radius: 15px 15px 15px 15px;
-  cursor: pointer;
-  }
-
- /* .form {
+.form {
   
   display: flex;
   flex-direction: column;
-  
   gap: 10px;
   width: 600px;
   height: 500px;
@@ -122,4 +62,4 @@ button {
 
 #file {
   display: none;
-} */
+} 
