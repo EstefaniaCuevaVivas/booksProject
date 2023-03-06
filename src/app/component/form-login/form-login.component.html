@@ -1,8 +1,8 @@
-<body class="p-3 m-0 border-0 bd-example">
+<body class="p-3 m-md-5 border-0 bd-example" style="background-color: rgba(4, 70, 4, 0.5);border-radius: 20px; height: 70%;"  >
   
- 
+ <h1 style="text-align: center;color: rgb(7, 56, 7);font-family: Verdana, Geneva, Tahoma, sans-serif">LOGIN</h1>
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="row g-3">
-    <div class="col-auto">
+    <div class="col-auto" style="margin-top: 6%;">
       <label for="inputPassword2" class="visually-hidden" >Email</label>
       <input type="email" name="email" [(ngModel)]="user.email" #emailId="ngModel" class="form-control" placeholder="E-mail" [ngClass]="{ 'is-invalid': (emailId.dirty || emailId.touched)&& emailId.invalid}" email required>
       <div *ngIf="(emailId.dirty || emailId.touched)&& emailId.invalid" class="invalid-feedback">
@@ -11,7 +11,7 @@
 
       </div>
     </div>
-    <div class="col-auto">
+    <div class="col-auto" style="margin-top: 6%;">
       <label for="inputPassword2" class="visually-hidden">Password</label>
       <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #passwordId="ngModel" [ngClass]="{'is-invalid':(passwordId.dirty || passwordId.touched)&& passwordId.invalid}" minlength="8" required id="inputPassword2" placeholder="Password" required>
       <div *ngIf="(passwordId.dirty || passwordId.touched)&& passwordId.invalid" class="invalid-feedback">
@@ -19,8 +19,8 @@
         <div *ngIf="passwordId.errors.minlength">La clave debe tener al menos 8 caracteres</div>
       </div>
     </div>
-    <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-3" [disabled]="userForm.invalid">Confirm identity</button>
+    <div class="col-auto" style="margin-top: 6%;">
+      <button type="submit" class="btn mb-3" style="background-color:  rgba(19, 238, 19, 0.6); color: rgb(6, 54, 6);"  [disabled]="userForm.invalid">Confirm identity</button>
     </div>
   </form>
   
