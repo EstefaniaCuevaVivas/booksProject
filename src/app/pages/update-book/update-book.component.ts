@@ -21,7 +21,11 @@ export class UpdateBookComponent {
   enviar(title: string,type: string,author: string, price: number,photo: string,id_book:number){
       
    let newbook = new Book (title,type,author,price,photo,id_book);
-   this.editBook = this.BooksService.edit(newbook)
+   if(this.editBook = this.BooksService.edit(newbook)){
+    alert("El libro con referencia" + " "+ newbook.id_book + " " + "ha sido modificado")
+   }else{
+    alert("El libro con referencia" + " " + newbook.id_book + " " + "no ha sido encontrado")
+   }
   }
  
   recoger(libro:Book){

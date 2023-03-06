@@ -1,7 +1,7 @@
 <div class="fondo">
   <div id='search-box'>
     <form action='/search' id='search-form'>
-    <input id='search-text' name='q' placeholder='Escribe lo que buscas' type='text' #search/>
+    <input #search id='search-text' name='q' placeholder='Escribe lo que buscas' type='text' />
     <button id='search-button' type='button'(click)="searchBook(search.value)"><span>Buscar</span></button>
     </form>
     </div>
@@ -14,8 +14,8 @@
     
       <ng-container *ngFor="let book of Books; let par = even">
 
-        <app-card [cardbook] = "book" [parHijo] = "par"></app-card>
-        <!-- (eventoBoton)="recoger($event) -->
+        <app-card [cardbook] = "book" [parHijo] = "par" (eventoBoton)="recoger($event)"></app-card>
+        
 
       </ng-container>
 

@@ -10,7 +10,7 @@ import { BooksService } from 'src/app/shared/books.service';
 })
 export class BooksComponent {
  public Books: Book [];
- public searchedBook : Book;
+ 
 
  constructor(public BooksService: BooksService ){
 
@@ -21,17 +21,21 @@ export class BooksComponent {
  }
  searchBook(id_book:string){
 
-  if(id_book == " "){
+  if(id_book == ""){
     this.Books=this.BooksService.getAll()
+    
   }else{
-    let number:number = Number(id_book)
-    this.searchedBook=this.BooksService.getOne(number)
-    console.log(this.searchedBook)
-  }if(this.searchedBook != undefined){
-    this.Books=[this.searchedBook]
+    let number:number = Number(id_book);
+    let libroBuscado =this.BooksService.getOne(number)
+    
+   if( libroBuscado != undefined){
+    this.Books=[libroBuscado]
+  }else{
+    alert("El id no existe") 
   }
-
    
+  }
+  
  }
 
  enviar(title: string,type: string,author: string, price: number,photo: string,id_book:number){
@@ -41,11 +45,11 @@ export class BooksComponent {
  }
 
 
- recoger(libro:Book){
+ recoger(id_book:number){
 
- let nuevosLibros=this.Books.filter(book => book.id_book != libro.id_book)
+ this.BooksService.delete(id_book)
 
-  this.Books = nuevosLibros;
+  
  
 
  }

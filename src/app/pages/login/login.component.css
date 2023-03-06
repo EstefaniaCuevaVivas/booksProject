@@ -1,0 +1,12 @@
+.fondo{
+  height: 90vh;
+  background-image: url(https://img.freepik.com/foto-gratis/libros-repisa_23-2147711744.jpg?w=1380&t=st=1677506917~exp=1677507517~hmac=9fe3252c2c9d449bebbacf567df37274db6a29fdfa32a901aae22b45266da1ec);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+ 
+}
+

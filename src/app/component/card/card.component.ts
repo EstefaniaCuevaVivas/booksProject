@@ -14,13 +14,13 @@ export class CardComponent
  
   @Input() cardbook: Book;
   @Input() parHijo: boolean;
-  // @Output() eventoBoton= new EventEmitter<Book>();
+  @Output() eventoBoton= new EventEmitter<number>();
 
-  constructor(public BooksService: BooksService){}
+  constructor(public booksService: BooksService){}
 
   eliminarCard(id_book:number){
    
-    this.eliminarLibro = this.BooksService.delete(id_book)
+    this.eventoBoton.emit(id_book)
    
   }
 }

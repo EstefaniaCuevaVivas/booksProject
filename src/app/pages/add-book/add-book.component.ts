@@ -20,6 +20,7 @@ export class AddBookComponent {
      
   let newbook = new Book (title,type,author,price,photo,id_book);
   this.añadirLibro = this.BooksService.add(newbook)
+  alert("Se ha añadido un nuevo libro con titulo" +" "+ newbook.title)
  }
 
  recoger(libro:Book){

@@ -23,14 +23,9 @@ export class BooksService {
 
    public getOne(id_libro: number):Book{
 
-    let bookPosition = -1;
-    for(let i=0;i<this.Books.length;i++){
-      if(this.Books[i].id_book == id_libro){
-        bookPosition=i
-      }
-    }
-
-    return this.Books[bookPosition]
+    let bookFound = this.Books.find(book => book.id_book==id_libro);
+  
+    return bookFound
 
    }
 
@@ -40,27 +35,23 @@ export class BooksService {
 
    }
 
-    public edit(book: Book): boolean{
+    public edit(bookEditado: Book): boolean{
 
-      for(let i=0;i<this.Books.length;i++){
-        if(this.Books[i].id_book == book.id_book){
-          this.Books[i]=book;
-        }
-      }
+     let editBook = this.Books.findIndex(book=>book.id_book == bookEditado.id_book)
+    //  this.Books[editBook]=bookEditado
+
+    this.Books.splice(editBook,1,bookEditado)
     
-      return true;
+      return editBook !=-1;
     }
    
 
    public delete(id_book: number): boolean{
 
-    for(let i=0;i<this.Books.length;i++){
-      if(this.Books[i].id_book== id_book){
-        this.Books.splice(i,1)
-      }
-    }
+   let deleteBook= this.Books.findIndex(book => book.id_book == id_book)
+   this.Books.splice(deleteBook,1)
 
-    return true;
+    return deleteBook != -1;
 
   }
 }
