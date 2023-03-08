@@ -2,6 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-books',
@@ -12,9 +13,9 @@ export class BooksComponent {
  public Books: Book [];
  
 
- constructor(public BooksService: BooksService ){
+ constructor(public BooksService: BooksService,private toastr: ToastrService ){
 
- this.Books= this.BooksService.getAll()
+ this.Books= this.BooksService.getAll();
 
 
   
@@ -31,7 +32,7 @@ export class BooksComponent {
    if( libroBuscado != undefined){
     this.Books=[libroBuscado]
   }else{
-    alert("El id no existe") 
+    this.toastr.warning("El id no existe"); 
   }
    
   }

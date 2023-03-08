@@ -40,7 +40,10 @@ export class BooksService {
      let editBook = this.Books.findIndex(book=>book.id_book == bookEditado.id_book)
     //  this.Books[editBook]=bookEditado
 
-    this.Books.splice(editBook,1,bookEditado)
+    if(editBook!=-1){
+      this.Books.splice(editBook,1,bookEditado)
+    }
+
     
       return editBook !=-1;
     }

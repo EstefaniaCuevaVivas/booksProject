@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
 
@@ -12,7 +13,7 @@ export class UpdateBookComponent {
   public Books: Book []
   public editBook : boolean
 
-  constructor(public BooksService: BooksService){
+  constructor(public BooksService: BooksService,private toastr: ToastrService){
 
   
 
@@ -22,9 +23,9 @@ export class UpdateBookComponent {
       
    let newbook = new Book (title,type,author,price,photo,id_book);
    if(this.editBook = this.BooksService.edit(newbook)){
-    alert("El libro con referencia" + " "+ newbook.id_book + " " + "ha sido modificado")
+    this.toastr.success("El libro con referencia" + " "+ newbook.id_book + " " + "ha sido modificado")
    }else{
-    alert("El libro con referencia" + " " + newbook.id_book + " " + "no ha sido encontrado")
+    this.toastr.warning("El libro con referencia" + " " + newbook.id_book + " " + "no ha sido encontrado")
    }
   }
  

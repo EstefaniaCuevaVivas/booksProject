@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BooksComponent } from '../books/books.component';
 import { BooksService } from 'src/app/shared/books.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-book',
@@ -12,7 +13,7 @@ export class AddBookComponent {
   public Books: Book []
   public añadirLibro: void
 
- constructor(public BooksService: BooksService){
+ constructor(public BooksService: BooksService, private toastr: ToastrService ){
   
  }
 
@@ -20,7 +21,7 @@ export class AddBookComponent {
      
   let newbook = new Book (title,type,author,price,photo,id_book);
   this.añadirLibro = this.BooksService.add(newbook)
-  alert("Se ha añadido un nuevo libro con titulo" +" "+ newbook.title)
+  this.toastr.success ("Se ha añadido un nuevo libro con titulo" +" "+ newbook.title)
  }
 
  recoger(libro:Book){
