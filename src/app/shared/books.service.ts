@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
 
+  private url="http://localhost:3000/book"
+
   private Books: Book[]
 
-  constructor() {
+  constructor(private http: HttpClient) {
 
     let book1 :Book = new Book ("El niño con el pijama de rayas","Tapa blanda","John Boyne",39,"https://m.media-amazon.com/images/I/512ndU0-S+L.jpg",60,24);
     let book2 :Book = new Book ("Harry Potter","Tapa dura","J. k. Rowling",45,"https://static.posters.cz/image/1300/posters/harry-potter-la-piedra-filosofal-i104639.jpg",45,68);

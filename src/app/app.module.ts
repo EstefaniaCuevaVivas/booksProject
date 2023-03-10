@@ -19,6 +19,8 @@ import { FormLoginComponent } from './component/form-login/form-login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastNoAnimationModule} from 'ngx-toastr';
 import { NoopAnimationPlayer } from '@angular/animations';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,10 @@ import { NoopAnimationPlayer } from '@angular/animations';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastNoAnimationModule.forRoot()
+    ToastNoAnimationModule.forRoot(),
+    HttpClientModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
