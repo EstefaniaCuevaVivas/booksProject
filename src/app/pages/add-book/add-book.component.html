@@ -3,13 +3,13 @@
   <div class="contenedorform">
     <form class="form">
       <span class="title">Añadir libro</span>
-      <input type="text" class="input" placeholder="Titulo" #input1/>
-      <input type="text" class="input" placeholder="tapa blanda/dura" #input2/>
-      <input type="text" class="input" placeholder="autor" #input3 />
+      <input type="text" class="input" placeholder={{BooksService.book.title}} #input1/>
+      <input type="text" class="input" placeholder={{BooksService.book.type}} #input2/>
+      <input type="text" class="input" placeholder={{BooksService.book.author}} #input3 />
   
-      <input type="texto" class="input" placeholder="precio" #input4/>
-      <input type="texto" class="input" placeholder="url" #input5/>
-      <input type="texto" class="input" placeholder="referencia" #input6/>
+      <input type="texto" class="input" placeholder={{BooksService.book.price}} #input4/>
+      <input type="texto" class="input" placeholder={{BooksService.book.photo}} #input5/>
+      <input type="texto" class="input" placeholder={{BooksService.book.id_book}} #input6/>
       <button (click)= "enviar(input1.value,input2.value,input3.value,input4.value,input5.value,input6.value)"   type="button">Insertar Libro</button>
     </form>
   </div>

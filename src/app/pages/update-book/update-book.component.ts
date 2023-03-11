@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
+import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
 
 
@@ -22,21 +23,28 @@ export class UpdateBookComponent {
   enviar(title: string,type: string,author: string, price: number,photo: string,id_book:number){
       
    let newbook = new Book (title,type,author,price,photo,id_book);
-   if(this.editBook = this.BooksService.edit(newbook)){
-    this.toastr.success("El libro con referencia" + " "+ newbook.id_book + " " + "ha sido modificado")
-   }else{
-    this.toastr.warning("El libro con referencia" + " " + newbook.id_book + " " + "no ha sido encontrado")
-   }
+   
+    this.BooksService.putBook(newbook).subscribe((resp:Respuesta)=>{
+      if(resp){
+
+        this.BooksService.Books=resp.data
+
+        this.toastr.success("El libro con referencia" + " "+ newbook.id_book + " " + "ha sido modificado")
+
+      }else{
+        this.toastr.warning("El libro con referencia" + " " + newbook.id_book + " " + "no ha sido encontrado")
+      }
+    })
   }
  
-  recoger(libro:Book){
+  // recoger(libro:Book){
  
-   let nuevosLibros=this.Books.filter(book => book.id_book != libro.id_book)
+  //  let nuevosLibros=this.Books.filter(book => book.id_book != libro.id_book)
    
-     this.Books = nuevosLibros;
+  //    this.Books = nuevosLibros;
     
    
-    }
+  //   }
  
 
 }

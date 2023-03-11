@@ -6,9 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BooksService {
 
-  private url="http://localhost:3000/book"
+  private url="http://localhost:3000/books"
 
-  private Books: Book[]
+  public Books: Book[]
+  public book: Book
 
   constructor(private http: HttpClient) {
 
@@ -23,6 +24,10 @@ export class BooksService {
       return this.Books
    }
 
+   getBook(){
+    return this.http.get(this.url)
+   }
+
    public getOne(id_libro: number):Book{
 
     let bookFound = this.Books.find(book => book.id_book==id_libro);
@@ -31,32 +36,50 @@ export class BooksService {
 
    }
 
-   public add(book: Book): void{
-
-    this.Books.push(book);
-
+   getBookOne(id:number){
+    return this.http.get(this.url)
    }
 
-    public edit(bookEditado: Book): boolean{
-
-     let editBook = this.Books.findIndex(book=>book.id_book == bookEditado.id_book)
-    //  this.Books[editBook]=bookEditado
-
-    if(editBook!=-1){
-      this.Books.splice(editBook,1,bookEditado)
-    }
-
-    
-      return editBook !=-1;
-    }
    
 
-   public delete(id_book: number): boolean{
+  //  public add(book: Book){
 
-   let deleteBook= this.Books.findIndex(book => book.id_book == id_book)
-   this.Books.splice(deleteBook,1)
+  //   return this.Books.push(book);
 
-    return deleteBook != -1;
+  //  }
 
+   postBook(newBook :Book){
+    return this.http.post(this.url,newBook)
+   }
+
+    // public edit(bookEditado: Book): boolean{
+
+    //  let editBook = this.Books.findIndex(book=>book.id_book == bookEditado.id_book)
+    // //  this.Books[editBook]=bookEditado
+
+    // // if(editBook!=-1){
+    //   this.Books.splice(editBook,1,bookEditado)
+
+    
+    //   return editBook !=-1;
+    // }
+
+  putBook(bookEditado: Book){
+    return this.http.put(this.url,bookEditado)
+  }
+   
+
+  //  public delete(id_book: number): boolean{
+
+  //  let deleteBook= this.Books.findIndex(book => book.id_book == id_book)
+  //  this.Books.splice(deleteBook,1)
+
+  //   return deleteBook != -1;
+
+  // }
+  
+  deleteBook(id_book:number){
+    const httpOptions= {headers:null,body:id_book}
+    return this.http.delete(this.url,httpOptions)
   }
 }

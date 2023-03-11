@@ -1,4 +1,6 @@
 export class Book {
+  
+  
   public  id_book: number;
   public  id_user: number;
   public title: string;
