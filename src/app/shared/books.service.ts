@@ -31,6 +31,8 @@ export class BooksService {
 
   
    postBook(newBook :Book){
+    console.log(newBook);
+    
     return this.http.post(this.url,newBook)
    }
 
@@ -42,10 +44,8 @@ export class BooksService {
 
   public delete(id_book:number):Observable<Object>{
     let deletedBook = {headers: null, body:{id_book:id_book}};
-    return this.http.delete(this.url+ "/"+ id_book, deletedBook);
+    return this.http.delete(this.url,deletedBook);
   }
 
-  edit(user: User){
-    return this.http.put(this.url,user)
-  }
+  
 }

@@ -27,6 +27,8 @@ export class FormLoginComponent {
     if(res.mensaje==="logueado"){
       this.apiService.logueado = true;
       this.apiService.user = res.data_user;
+      console.log(res.data_user);
+      
       this.router.navigate(['/books'])
      
       

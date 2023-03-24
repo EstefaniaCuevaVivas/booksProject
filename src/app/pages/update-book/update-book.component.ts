@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Book } from 'src/app/models/book';
 import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
+import { UserService } from 'src/app/shared/user.service';
 
 
 @Component({
@@ -14,15 +15,15 @@ export class UpdateBookComponent {
   public Books: Book []
   public editBook : boolean
 
-  constructor(public BooksService: BooksService,private toastr: ToastrService){
-
-  
+  constructor(public BooksService: BooksService,private toastr: ToastrService,public apiService:UserService){
 
   }
  
   enviar(title: string,type: string,author: string, price: number,photo: string,id_book:number){
       
-   let newbook = new Book (title,type,author,price,photo,id_book);
+   let newbook = new Book (title,type,author,price,photo,this.apiService.user.id_user,id_book);
+   
+   console.log((newbook));
    
     this.BooksService.putBook(newbook).subscribe((resp:Respuesta)=>{
       if(!resp.error){

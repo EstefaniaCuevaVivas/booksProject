@@ -59,7 +59,14 @@ export class BooksComponent {
     this.booksService.delete(id_book).subscribe((resp:Respuesta)=>
     {
       console.log(resp.data)
-      this.Books = resp.data
+      
+      this.booksService.getAll(this.apiService.user.id_user).subscribe((resp:Respuesta)=>{
+        console.log(resp.data)
+        this.Books = resp.data
+      });
+  
+
+
     })
   }
 }

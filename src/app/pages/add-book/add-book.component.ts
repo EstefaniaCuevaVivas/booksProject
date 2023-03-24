@@ -29,18 +29,19 @@ export class AddBookComponent {
     author: string,
     price: number,
     photo_libro: string,
-    id_book: number
+  
   ) {
-    let newbook = new Book(title, type, author, price, photo_libro, id_book,this.apiService.user.id_user);
+    let newbook = new Book(title, type, author, price, photo_libro,this.apiService.user.id_user);
+    console.log(newbook);
+    
     this.BooksService.postBook(newbook).subscribe((resp: Respuesta) => {
-      if (!resp.error) {
-        this.BooksService.Books= resp.data;
+      if (resp.error) {
+        this.toastr.error(`ERROR: libro no añadido`);
         console.log(resp.data)
-        this.toastr.success(
-          `Se ha añadido un nuevo libro con titulo ${newbook.title}`
-        );
       } else {
-        this.toastr.error('El libro ya existe');
+        this.toastr.success(`Se ha añadido un nuevo libro con titulo ${newbook.title}`);
+        console.log(resp.data)
+
       }
     });
   }
