@@ -4,6 +4,7 @@ import { Book } from 'src/app/models/book';
 import { BooksService } from 'src/app/shared/books.service';
 import { ToastrService } from 'ngx-toastr';
 import { Respuesta } from 'src/app/models/respuesta';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-books',
@@ -12,26 +13,38 @@ import { Respuesta } from 'src/app/models/respuesta';
 })
 export class BooksComponent {
   public Books: Book[];
+  public book :Book
 
   constructor(
-    public BooksService: BooksService,
-    private toastr: ToastrService
-  ) {
-    this.Books = this.BooksService.getAll();
+    public booksService: BooksService,
+    private toastr: ToastrService,
+    private apiService: UserService
+  ) 
+  {
+    this.Books = [];
+    console.log(this.apiService.user)
+    this.booksService.getAll(this.apiService.user.id_user).subscribe((resp:Respuesta)=>{
+      console.log(resp.data)
+      this.Books = resp.data
+    });
+
   }
   searchBook(id_book: string) {
-    if (id_book == '') {
-      this.BooksService.getBook();
-    } else {
-      let number: number = Number(id_book);
-      let libroBuscado = this.BooksService.getOne(number);
-
-      if (libroBuscado != undefined) {
-        this.Books = [libroBuscado];
-      } else {
-        this.toastr.warning('El id no existe');
-      }
-    }
+   
+      let number = parseInt(id_book)
+      console.log(number);
+      
+      this.booksService.getBookOne(number,this.apiService.user.id_user).subscribe((resp:Respuesta)=>{
+        if ( !resp.error) {
+          
+       console.log(resp.data)
+       this.Books = resp.data
+         
+        }else {
+          this.toastr.warning('El id no existe');
+        }
+      });   
+    
   }
 
   //  enviar(title: string,type: string,author: string, price: number,photo: string,id_book:number){
@@ -41,11 +54,12 @@ export class BooksComponent {
   //  }
 
   recoger(id_book: number) {
-    this.BooksService.deleteBook(id_book).subscribe((resp: Respuesta) => {
-      if (!resp.error) {
-        this.BooksService.Books=resp.data
-        this.toastr.success('El libro ha sido eliminado');
-      }
-    });
+    console.log(id_book);
+    
+    this.booksService.delete(id_book).subscribe((resp:Respuesta)=>
+    {
+      console.log(resp.data)
+      this.Books = resp.data
+    })
   }
 }

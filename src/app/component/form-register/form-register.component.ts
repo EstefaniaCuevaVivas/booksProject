@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/shared/user.service';
+import { Respuesta } from 'src/app/models/respuesta';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-register',
@@ -12,22 +15,44 @@ export class FormRegisterComponent {
   public myForm: FormGroup;
   public user : User;
 
-  constructor(private formBuilder:FormBuilder){
+
+  constructor(private formBuilder:FormBuilder, private toastr: ToastrService,public apiService:UserService){
     this.buildForm()
   }
 
   public register(){
+    const dataForm = this.myForm.value;
+    const user:User = new User(0,dataForm.nombre,
+                               dataForm.apellidos,
+                               dataForm.email,
+                               null,
+                               dataForm.password);
 
-    const user = this.myForm.value;
     console.log(user)
+
+      this.apiService.postUser(user).subscribe((resp: string) => {
+       if (resp != "-1") {
+         this.apiService.user = user;
+         this.apiService.user.id_user = Number(resp);
+         this.toastr.success(
+          `Se ha registrado correctamente ${user.name} con id: ${resp}`
+       );
+     } else {
+        this.toastr.error('El usuario ya existe');
+    }
+   });
+
+    
   }
+
+  
 
   private buildForm(){
     const minPassLength =8;
 
     this.myForm= this.formBuilder.group({
       nombre:[,Validators.required],
-      Apellidos:[,Validators.required],
+      apellidos:[,Validators.required],
       email: [,[Validators.required,Validators.email]],
       password:[, [Validators.required, Validators.minLength(minPassLength)]],
       password2:[,[Validators.required, this.checkPasswords]]

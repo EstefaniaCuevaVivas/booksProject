@@ -6,13 +6,16 @@
     </form>
     </div>
   <div class="contenedorCards">
-    <div class="showBooks" *ngIf="Books.length === 0; else showBooks">
+    <div class="showBooks" *ngIf="Books.length == 0; else showBooks">
       No hay libros disponibles
     </div>
 
     <ng-template #showBooks>
     
       <ng-container *ngFor="let book of Books; let par = even">
+
+        
+
 
         <app-card [cardbook] = "book" [parHijo] = "par" (eventoBoton)="recoger($event)"></app-card>
         

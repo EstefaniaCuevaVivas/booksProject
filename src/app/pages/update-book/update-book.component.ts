@@ -25,7 +25,7 @@ export class UpdateBookComponent {
    let newbook = new Book (title,type,author,price,photo,id_book);
    
     this.BooksService.putBook(newbook).subscribe((resp:Respuesta)=>{
-      if(resp){
+      if(!resp.error){
 
         this.BooksService.Books=resp.data
 

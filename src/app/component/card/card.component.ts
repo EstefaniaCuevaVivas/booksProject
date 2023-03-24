@@ -15,6 +15,7 @@ export class CardComponent
   @Input() cardbook: Book;
   @Input() parHijo: boolean;
   @Output() eventoBoton= new EventEmitter<number>();
+BooksService: any;
 
   constructor(public booksService: BooksService){}
 

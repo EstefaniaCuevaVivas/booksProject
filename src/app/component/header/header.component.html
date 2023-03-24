@@ -3,13 +3,14 @@
     <H1>MyBooks</H1>
   </div>
   <div class="letras">
-    <a routerLink="/home" routerLinkActive="active-link">Home</a>
-    <a routerLink ="/register" routerLinkActive="active-link">Register</a>
-    <a routerLink="/profile" routerLinkActive="active-link">Profile</a>
-    <a routerLink="/books" routerLinkActive="active-link">Books</a> 
-    <a routerLink = "/add-book" routerLinkActive="active-link">AddBook</a>
-    <a routerLink="/updatebook" routerLinkActive="active-link">UpdateBook</a>
-    <a routerLink="/login" routerLinkActive="active-link">Login</a>
+    <a *ngIf="!this.apiService.logueado" routerLink="/home" routerLinkActive="active-link">Home</a>
+    <a *ngIf="!this.apiService.logueado" routerLink ="/register" routerLinkActive="active-link">Register</a>
+    <a *ngIf="this.apiService.logueado"  routerLink="/profile" routerLinkActive="active-link">Profile</a>
+    <a *ngIf="this.apiService.logueado"  routerLink="/books" routerLinkActive="active-link">Books</a> 
+    <a *ngIf="this.apiService.logueado"  routerLink = "/add-book" routerLinkActive="active-link">AddBook</a>
+    <a *ngIf="this.apiService.logueado"  routerLink="/updatebook" routerLinkActive="active-link">UpdateBook</a>
+    <a *ngIf="!this.apiService.logueado" routerLink="/login" routerLinkActive="active-link">Login</a>
+
   </div>
  
 </header>

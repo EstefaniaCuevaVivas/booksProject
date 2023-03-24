@@ -1,12 +1,12 @@
 
 <div class="card">
   <button (click) = "eliminarCard(cardbook.id_book)" class="cerrar" type="button">X</button>
-  <img src="{{ cardbook.photo }}" class="card-img" />
+  <img src="{{cardbook.photo_libro }}" class="card-img" />
   <div class="card-info">
-    <p class="text-type">{{ cardbook.type }}</p>
+    <p class="text-type">{{cardbook.type }}</p>
     <hr />
     <p class="text-title">{{ cardbook.title }}</p>
-    <p class="text-body">Author : {{ cardbook.author }}</p>
+    <p class="text-body " > Author : {{ cardbook.author }}</p>
     <p class="pipe">{{ cardbook.id_book | referencias }}</p>
   </div>
   <div class="card-footer">
